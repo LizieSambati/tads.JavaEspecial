@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-// findAll, findById, save, update e delete;
-
 @RestController
 @RequestMapping("/api/professores")
 public class ProfessorController {
