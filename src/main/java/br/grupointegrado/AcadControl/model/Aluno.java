@@ -1,7 +1,9 @@
 package br.grupointegrado.AcadControl.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "alunos")
@@ -22,6 +24,10 @@ public class Aluno {
 
         @Column
         private Date data_nascimento;
+
+        @OneToMany(mappedBy = "aluno")
+        @JsonIgnoreProperties("aluno")
+        private List<Matricula> matriculas;
 
     public Integer getId() {
         return Id;
