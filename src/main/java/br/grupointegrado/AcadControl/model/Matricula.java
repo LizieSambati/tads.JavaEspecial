@@ -1,8 +1,9 @@
 package br.grupointegrado.AcadControl.model;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 @Entity
 @Table(name = "matriculas")
@@ -19,6 +20,10 @@ public class Matricula {
     @ManyToOne
     @JoinColumn(name = "turma_id", referencedColumnName = "id")
     private Turma turma;
+
+    @OneToMany(mappedBy = "matricula")
+    @JsonIgnoreProperties("matricula")
+    private List<Nota> notas;
 
     public Integer getId() {
         return Id;
@@ -42,5 +47,13 @@ public class Matricula {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public List<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
     }
 }

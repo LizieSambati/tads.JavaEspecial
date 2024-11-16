@@ -29,6 +29,8 @@ public class Aluno {
         @JsonIgnoreProperties("aluno")
         private List<Matricula> matriculas;
 
+
+
     public Integer getId() {
         return Id;
     }
@@ -67,6 +69,14 @@ public class Aluno {
 
     public void setData_nascimento(Date data_nascimento) {
         this.data_nascimento = data_nascimento;
+    }
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }
 

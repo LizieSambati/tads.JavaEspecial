@@ -1,7 +1,10 @@
 package br.grupointegrado.AcadControl.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Disciplinas")
@@ -17,7 +20,6 @@ public class Disciplina {
     @Column
     private Integer codigo;
 
-
     @ManyToOne
     @JoinColumn(name = "curso_id", referencedColumnName = "id")
     private Curso curso;
@@ -25,6 +27,10 @@ public class Disciplina {
     @ManyToOne
     @JoinColumn(name = "professor_id", referencedColumnName = "id")
     private Professor professor;
+
+    @OneToMany(mappedBy = "disciplina")
+    @JsonIgnoreProperties("disciplina")
+    private List<Nota> notas;
 
     public Integer getId() {
         return Id;
@@ -64,5 +70,13 @@ public class Disciplina {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public List<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Nota> notas) {
+        this.notas = notas;
     }
 }
