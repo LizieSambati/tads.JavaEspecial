@@ -10,8 +10,10 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
+    @Column
     private String ano;
 
+    @Column
     private Integer semestre;
 
     @ManyToOne
