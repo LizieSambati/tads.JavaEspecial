@@ -23,10 +23,6 @@ public class Curso {
     @Column
     private Integer carga_horaria;
 
-    @OneToMany(mappedBy = "curso")
-    @JsonIgnoreProperties("curso")
-    private List<Turma> turmas;
-
     public Integer getId() {
         return Id;
     }
@@ -59,11 +55,4 @@ public class Curso {
         this.carga_horaria = carga_horaria;
     }
 
-    public List<Turma> getTurmas() {
-        return turmas;
-    }
-
-    public void setTurmas(List<Turma> turmas) {
-        this.turmas = turmas;
-    }
 }

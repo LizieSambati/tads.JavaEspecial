@@ -28,10 +28,6 @@ public class Disciplina {
     @JoinColumn(name = "professor_id", referencedColumnName = "id")
     private Professor professor;
 
-    @OneToMany(mappedBy = "disciplina")
-    @JsonIgnoreProperties("disciplina")
-    private List<Nota> notas;
-
     public Integer getId() {
         return Id;
     }
@@ -72,11 +68,4 @@ public class Disciplina {
         this.professor = professor;
     }
 
-    public List<Nota> getNotas() {
-        return notas;
-    }
-
-    public void setNotas(List<Nota> notas) {
-        this.notas = notas;
-    }
 }

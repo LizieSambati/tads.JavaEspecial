@@ -25,12 +25,6 @@ public class Aluno {
         @Column
         private Date data_nascimento;
 
-        @OneToMany(mappedBy = "aluno")
-        @JsonIgnoreProperties("aluno")
-        private List<Matricula> matriculas;
-
-
-
     public Integer getId() {
         return Id;
     }
@@ -71,12 +65,5 @@ public class Aluno {
         this.data_nascimento = data_nascimento;
     }
 
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
 }
 

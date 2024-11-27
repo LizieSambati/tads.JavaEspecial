@@ -67,5 +67,4 @@ public class Nota {
         this.data_lancamento = data_lancamento;
     }
 
-
 }
