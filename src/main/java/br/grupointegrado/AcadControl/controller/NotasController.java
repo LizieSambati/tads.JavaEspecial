@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/notas")
+@RequestMapping("/api/nota")
 
 public class NotasController {
 
@@ -25,17 +25,6 @@ public class NotasController {
     @Autowired
     private DisciplinaRepository disciplinaRepository;
 
-    @GetMapping
-    public List<Nota> findAll() {
-        return this.repository.findAll();
-    }
-
-
-    @GetMapping("/{id}")
-    public Nota findById(@PathVariable Integer id) {
-        return this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Nota não encontrada"));
-    }
     @PostMapping
     public Nota save(@RequestBody NotaRequestDTO dto) {
         Nota nota = new Nota();
@@ -66,13 +55,6 @@ public class NotasController {
         nota.setData_lancamento(dto.data_lançamento());
 
         return this.repository.save(nota);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        Nota nota = this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Nota não encontrada"));
-        this.repository.delete(nota);
     }
 
 }

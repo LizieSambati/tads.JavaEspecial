@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/alunos")
+@RequestMapping("/api/aluno")
 public class AlunoController {
 
     @Autowired
@@ -61,4 +61,5 @@ public class AlunoController {
 
         this.repository.delete(aluno);
     }
+
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/professores")
+@RequestMapping("/api/professor")
 public class ProfessorController {
     @Autowired
     private ProfessorRepository repository;
@@ -56,4 +56,5 @@ public class ProfessorController {
 
         this.repository.delete(professor);
     }
+
 }

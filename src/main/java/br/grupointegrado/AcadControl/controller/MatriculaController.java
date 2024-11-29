@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/matriculas")
+@RequestMapping("/api/matricula")
 
 public class MatriculaController {
 
@@ -27,18 +27,6 @@ public class MatriculaController {
 
     @Autowired
     private TurmaRepository turmaRepository;
-
-    @GetMapping
-    public List<Matricula> findAll() {
-        return this.repository.findAll();
-    }
-
-
-    @GetMapping("/{id}")
-    public Matricula findById(@PathVariable Integer id) {
-        return this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Matrícula não encontrada"));
-    }
 
     @PostMapping
     public Matricula save(@RequestBody MatriculaRequestDTO dto) {

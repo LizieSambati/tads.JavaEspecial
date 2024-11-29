@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/cursos")
+@RequestMapping("/api/curso")
 public class CursoController {
 
     @Autowired
@@ -49,11 +49,4 @@ public class CursoController {
         return this.repository.save(curso);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        Curso curso = this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Curso não encontrado"));
-
-        this.repository.delete(curso);
-    }
 }

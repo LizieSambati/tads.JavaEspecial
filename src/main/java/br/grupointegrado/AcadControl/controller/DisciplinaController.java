@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/disciplinas")
+@RequestMapping("/api/disciplina")
 public class DisciplinaController {
 
     @Autowired
@@ -33,11 +33,6 @@ public class DisciplinaController {
         return this.repository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Disciplina findById(@PathVariable Integer id) {
-        return this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Disciplina não encontrada"));
-    }
     @PostMapping
     public Disciplina save(@RequestBody DisciplinaRequestDTO dto) {
         Disciplina disciplina = new Disciplina();
@@ -70,10 +65,4 @@ public class DisciplinaController {
         return this.repository.save(disciplina);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        Disciplina disciplina = this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Disciplina não encontrada"));
-        this.repository.delete(disciplina);
-    }
 }

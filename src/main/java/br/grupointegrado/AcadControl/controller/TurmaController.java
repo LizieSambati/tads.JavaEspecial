@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/turmas")
+@RequestMapping("/api/turma")
 
 public class TurmaController {
 
@@ -58,10 +58,4 @@ public class TurmaController {
         return this.repository.save(turma);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        Turma turma = this.repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Turma não encontrada"));
-        this.repository.delete(turma);
-    }
 }
