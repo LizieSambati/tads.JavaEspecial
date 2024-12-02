@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/api/curso")
 public class CursoController {
@@ -27,6 +26,7 @@ public class CursoController {
         return this.repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Curso não encontrado"));
     }
+
     @PostMapping
     public Curso save(@RequestBody CursoRequestDTO dto) {
         Curso curso = new Curso();
